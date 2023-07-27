@@ -1,21 +1,52 @@
-MIT License
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabeçalho">
+        <img class="cabeçalho-imagem" src="ferrari-logo-brand-car-symbol-with-name-design-italian-automobile-illustration-with-black-background-free-vector.jpg" alt="logo do site">
+        <ul class="cabeçalho-lista">
+            <li class="cabeçalho-lista-item">ESCOLA</li>
+            <li class="cabeçalho-lista-item">ESTUDANTE</li>
+        </ul>
+    </header>
+    <section class="EMPRESA">
+        <h2 class="EMPRESA-TITULO">SOBRE A EMPRESA</h2>
+        <p class="EMPRESA-texto 1"></p>
+        <p class="EMPRESA-texto 2"></p>
+    </section>
+    
+</body>
+<h1>oi tudo bem</h1>
+</html>
 
-Copyright (c) 2023 João Pedro ÚwÚ 
+css:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+*{
+    margin: 0;
+    padding: 0;
+}
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+.cabeçalho {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 24px 0;
+}
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+.cabeçalho-imagem {
+    width: 20%;
+}
+
+.cabeçalho-lista-item {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 24px;
+}
