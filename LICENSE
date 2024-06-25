@@ -1,52 +1,175 @@
+index.html:
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <title>Você decide o futuro da IA</title>
 </head>
 <body>
-    <header class="cabeçalho">
-        <img class="cabeçalho-imagem" src="ferrari-logo-brand-car-symbol-with-name-design-italian-automobile-illustration-with-black-background-free-vector.jpg" alt="logo do site">
-        <ul class="cabeçalho-lista">
-            <li class="cabeçalho-lista-item">ESCOLA</li>
-            <li class="cabeçalho-lista-item">ESTUDANTE</li>
-        </ul>
-    </header>
-    <section class="EMPRESA">
-        <h2 class="EMPRESA-TITULO">SOBRE A EMPRESA</h2>
-        <p class="EMPRESA-texto 1"></p>
-        <p class="EMPRESA-texto 2"></p>
-    </section>
-    
+    <div class="caixa-principal">
+        <h1>Conservação da Biodiversidade iniciativas e progrmas voltados para a proteção de espécies ameaçadas e preservação de habitantes naturais</h1>
+        <div class="caixa-perguntas"></div>
+        <div class="caixa-alternativas"></div>
+        <div class="caixa-resultado">
+            <p class="texto-resultado"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<h1>oi tudo bem</h1>
 </html>
 
-css:
+style.css: 
+:root{
+    --cor-fundo: #01080E ;
+    --cor-principal: #0B0D20 ;
+    --cor-secundaria: #212333;
+    --cor-destaque: #2BDEFD;
+    --cor-texto: #D7F9FF;
 
-*{
-    margin: 0;
-    padding: 0;
+
 }
 
-.cabeçalho {
-    background-color: #000000;
-    color: #ffffff;
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 24px 0;
+    min-height: 100vh;
 }
 
-.cabeçalho-imagem {
-    width: 20%;
+
+.caixa-principal{
+    background-color: var(--cor-principal);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
 }
 
-.cabeçalho-lista-item {
-    display: inline-block;
-    margin: 0 20px;
-    font-size: 24px;
+
+h1{
+    color: var(--cor-destaque);
 }
+
+
+button {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+
+button:hover{
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal);
+}
+
+
+script.jss:
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+
+
+const perguntas = [
+    {
+        enunciado: "Quais são as principais iniciativas e programas globais atualmente em vigor para a conservação da biodiversidade e a proteção de espécies ameaçadas?",
+        alternativas: [ 
+            {
+                texto: "Muitas metas de conservação não seriam alcançadas e o financiamento seria insuficiente. A falta de coordenação e a pressão econômica sobre recursos naturais, além das mudanças climáticas, continuariam a ameaçar a biodiversidade, assim não resolvendo o problema.",
+           
+            },
+            {
+                texto: "",
+               
+            }
+        ]
+    },
+    {
+        enunciado: "Qual medida você acha que seria a ideal a ser tomada?",
+        alternativas: [
+            {
+                texto: "oasdjiasdioisdo",
+               
+            },
+            {
+                texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
+               
+            }
+        ]
+    },
+    {
+        enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
+        alternativas: [
+            {
+                texto: "Criar uma imagem utilizando uma plataforma de design como o Paint.",
+               
+            },
+            {
+                texto: "Criar uma imagem utilizando um gerador de imagem de IA.",
+               
+            }
+        ]
+    },
+   
+];
+
+
+
+
+let atual = 0;
+let perguntaAtual;
+let historiaFinal = "";
+
+
+function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+    mostraAlternativas();
+}
+
+
+function mostraAlternativas(){
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+
+function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal += afirmacoes + " ";
+    atual++;
+    mostraPergunta();
+}
+
+
+function mostraResultado() {
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+}
+
+
+mostraPergunta();
+
+
+
+
